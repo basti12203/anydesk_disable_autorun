@@ -1,0 +1,15 @@
+[Unit]
+Description=Mask AnyDesk Autostart
+Requires=network.target
+After=systemd-user-sessions.service
+ConditionPathExists=/etc/systemd/system/multi-user.target.wants/anydesk.service
+
+[Service]
+Type=oneshot
+ExecStartPre=rm /etc/systemd/system/multi-user.target.wants/anydesk.service
+ExecStart=mv /etc/systemd/system/anydesk.service /lib/systemd/system/anydesk.service
+ExecStart=systemctl mask anydesk.service
+ExecStartPost=systemctl daemon-reload
+
+[Install]
+WantedBy=multi-user.target
