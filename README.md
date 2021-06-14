@@ -1,5 +1,5 @@
 # anydesk_disable_autorun
-Systemd-Unit to disable Autostart of AnyDesk
+Systemd-Unit to disable autostart of AnyDesk
 
 I Do not want to start anydesk by default at startup. Normally you can mask such a unit with Systemd, when the unitfile itself is not placed within /etc/systemd.
 
